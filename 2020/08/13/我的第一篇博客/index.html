@@ -10,24 +10,24 @@
   <meta name="description" content="【难度系数】:★★★★☆ 一、位带操作 二、《Cortex M3与M4权威指南》章节6.7 P206 三、寄存器地址与别名地址转换技巧 四、代码调整 五、编译优化 六、volatile关键字 七、仿真调试 一、位带操作 1.意义 回想以前写51代码 1234P0 &#x3D; 0x10;     &#x2F;&#x2F;将P0端口设置为0x10P1_0&#x3D;1;        &#x2F;&#x2F;将P1端口0号引脚设置为高电平a &#x3D; P2_2;">
 <meta property="og:type" content="article">
 <meta property="og:title" content="我的第一篇博客">
-<meta property="og:url" content="http://yoursite.com/2020/08/13/%E6%88%91%E7%9A%84%E7%AC%AC%E4%B8%80%E7%AF%87%E5%8D%9A%E5%AE%A2/index.html">
+<meta property="og:url" content="https://daphel.github.io/2020/08/13/%E6%88%91%E7%9A%84%E7%AC%AC%E4%B8%80%E7%AF%87%E5%8D%9A%E5%AE%A2/index.html">
 <meta property="og:site_name" content="Hexo">
 <meta property="og:description" content="【难度系数】:★★★★☆ 一、位带操作 二、《Cortex M3与M4权威指南》章节6.7 P206 三、寄存器地址与别名地址转换技巧 四、代码调整 五、编译优化 六、volatile关键字 七、仿真调试 一、位带操作 1.意义 回想以前写51代码 1234P0 &#x3D; 0x10;     &#x2F;&#x2F;将P0端口设置为0x10P1_0&#x3D;1;        &#x2F;&#x2F;将P1端口0号引脚设置为高电平a &#x3D; P2_2;">
 <meta property="og:locale" content="en_US">
-<meta property="og:image" content="http://yoursite.com/2020/08/13/%E6%88%91%E7%9A%84%E7%AC%AC%E4%B8%80%E7%AF%87%E5%8D%9A%E5%AE%A2/%E6%88%91%E7%9A%84%E7%AC%AC%E4%B8%80%E7%AF%87%E5%8D%9A%E5%AE%A2.assets/20200813084117.png">
-<meta property="og:image" content="http://yoursite.com/2020/08/13/%E6%88%91%E7%9A%84%E7%AC%AC%E4%B8%80%E7%AF%87%E5%8D%9A%E5%AE%A2/%E6%88%91%E7%9A%84%E7%AC%AC%E4%B8%80%E7%AF%87%E5%8D%9A%E5%AE%A2.assets/BD82CB5A69FF4DF88DDAD5B58535ED70.png">
-<meta property="og:image" content="http://yoursite.com/2020/08/13/%E6%88%91%E7%9A%84%E7%AC%AC%E4%B8%80%E7%AF%87%E5%8D%9A%E5%AE%A2/%E6%88%91%E7%9A%84%E7%AC%AC%E4%B8%80%E7%AF%87%E5%8D%9A%E5%AE%A2.assets/3A5B6ADFD7AA4D48A04CFC96A9F165E4.png">
-<meta property="og:image" content="http://yoursite.com/2020/08/13/%E6%88%91%E7%9A%84%E7%AC%AC%E4%B8%80%E7%AF%87%E5%8D%9A%E5%AE%A2/%E6%88%91%E7%9A%84%E7%AC%AC%E4%B8%80%E7%AF%87%E5%8D%9A%E5%AE%A2.assets/4BC0E75FB591446B8DF4BC3E10A31887.png">
-<meta property="og:image" content="http://yoursite.com/2020/08/13/%E6%88%91%E7%9A%84%E7%AC%AC%E4%B8%80%E7%AF%87%E5%8D%9A%E5%AE%A2/%E6%88%91%E7%9A%84%E7%AC%AC%E4%B8%80%E7%AF%87%E5%8D%9A%E5%AE%A2.assets/5076695E9FAF4BFC9600A1A1D856BF49.png">
-<meta property="og:image" content="http://yoursite.com/2020/08/13/%E6%88%91%E7%9A%84%E7%AC%AC%E4%B8%80%E7%AF%87%E5%8D%9A%E5%AE%A2/%E6%88%91%E7%9A%84%E7%AC%AC%E4%B8%80%E7%AF%87%E5%8D%9A%E5%AE%A2.assets/25E2B5C80DE846149ADBFDA81604FA5B.png">
-<meta property="og:image" content="http://yoursite.com/2020/08/13/%E6%88%91%E7%9A%84%E7%AC%AC%E4%B8%80%E7%AF%87%E5%8D%9A%E5%AE%A2/%E6%88%91%E7%9A%84%E7%AC%AC%E4%B8%80%E7%AF%87%E5%8D%9A%E5%AE%A2.assets/CAAC633E80624FEBAC77B3437AD6DF5C.png">
-<meta property="og:image" content="http://yoursite.com/2020/08/13/%E6%88%91%E7%9A%84%E7%AC%AC%E4%B8%80%E7%AF%87%E5%8D%9A%E5%AE%A2/%E6%88%91%E7%9A%84%E7%AC%AC%E4%B8%80%E7%AF%87%E5%8D%9A%E5%AE%A2.assets/FEDF052FFAC64786A5850B4A6BD83F13.png">
-<meta property="og:image" content="http://yoursite.com/2020/08/13/%E6%88%91%E7%9A%84%E7%AC%AC%E4%B8%80%E7%AF%87%E5%8D%9A%E5%AE%A2/%E6%88%91%E7%9A%84%E7%AC%AC%E4%B8%80%E7%AF%87%E5%8D%9A%E5%AE%A2.assets/F07B89E3E82743C6AE4F475233A460B0.jpeg">
+<meta property="og:image" content="https://daphel.github.io/2020/08/13/%E6%88%91%E7%9A%84%E7%AC%AC%E4%B8%80%E7%AF%87%E5%8D%9A%E5%AE%A2/%E6%88%91%E7%9A%84%E7%AC%AC%E4%B8%80%E7%AF%87%E5%8D%9A%E5%AE%A2.assets/20200813084117.png">
+<meta property="og:image" content="https://daphel.github.io/2020/08/13/%E6%88%91%E7%9A%84%E7%AC%AC%E4%B8%80%E7%AF%87%E5%8D%9A%E5%AE%A2/%E6%88%91%E7%9A%84%E7%AC%AC%E4%B8%80%E7%AF%87%E5%8D%9A%E5%AE%A2.assets/BD82CB5A69FF4DF88DDAD5B58535ED70.png">
+<meta property="og:image" content="https://daphel.github.io/2020/08/13/%E6%88%91%E7%9A%84%E7%AC%AC%E4%B8%80%E7%AF%87%E5%8D%9A%E5%AE%A2/%E6%88%91%E7%9A%84%E7%AC%AC%E4%B8%80%E7%AF%87%E5%8D%9A%E5%AE%A2.assets/3A5B6ADFD7AA4D48A04CFC96A9F165E4.png">
+<meta property="og:image" content="https://daphel.github.io/2020/08/13/%E6%88%91%E7%9A%84%E7%AC%AC%E4%B8%80%E7%AF%87%E5%8D%9A%E5%AE%A2/%E6%88%91%E7%9A%84%E7%AC%AC%E4%B8%80%E7%AF%87%E5%8D%9A%E5%AE%A2.assets/4BC0E75FB591446B8DF4BC3E10A31887.png">
+<meta property="og:image" content="https://daphel.github.io/2020/08/13/%E6%88%91%E7%9A%84%E7%AC%AC%E4%B8%80%E7%AF%87%E5%8D%9A%E5%AE%A2/%E6%88%91%E7%9A%84%E7%AC%AC%E4%B8%80%E7%AF%87%E5%8D%9A%E5%AE%A2.assets/5076695E9FAF4BFC9600A1A1D856BF49.png">
+<meta property="og:image" content="https://daphel.github.io/2020/08/13/%E6%88%91%E7%9A%84%E7%AC%AC%E4%B8%80%E7%AF%87%E5%8D%9A%E5%AE%A2/%E6%88%91%E7%9A%84%E7%AC%AC%E4%B8%80%E7%AF%87%E5%8D%9A%E5%AE%A2.assets/25E2B5C80DE846149ADBFDA81604FA5B.png">
+<meta property="og:image" content="https://daphel.github.io/2020/08/13/%E6%88%91%E7%9A%84%E7%AC%AC%E4%B8%80%E7%AF%87%E5%8D%9A%E5%AE%A2/%E6%88%91%E7%9A%84%E7%AC%AC%E4%B8%80%E7%AF%87%E5%8D%9A%E5%AE%A2.assets/CAAC633E80624FEBAC77B3437AD6DF5C.png">
+<meta property="og:image" content="https://daphel.github.io/2020/08/13/%E6%88%91%E7%9A%84%E7%AC%AC%E4%B8%80%E7%AF%87%E5%8D%9A%E5%AE%A2/%E6%88%91%E7%9A%84%E7%AC%AC%E4%B8%80%E7%AF%87%E5%8D%9A%E5%AE%A2.assets/FEDF052FFAC64786A5850B4A6BD83F13.png">
+<meta property="og:image" content="https://daphel.github.io/2020/08/13/%E6%88%91%E7%9A%84%E7%AC%AC%E4%B8%80%E7%AF%87%E5%8D%9A%E5%AE%A2/%E6%88%91%E7%9A%84%E7%AC%AC%E4%B8%80%E7%AF%87%E5%8D%9A%E5%AE%A2.assets/F07B89E3E82743C6AE4F475233A460B0.jpeg">
 <meta property="article:published_time" content="2020-08-13T00:42:16.000Z">
 <meta property="article:modified_time" content="2020-08-13T00:42:53.746Z">
 <meta property="article:author" content="John Doe">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="http://yoursite.com/2020/08/13/%E6%88%91%E7%9A%84%E7%AC%AC%E4%B8%80%E7%AF%87%E5%8D%9A%E5%AE%A2/%E6%88%91%E7%9A%84%E7%AC%AC%E4%B8%80%E7%AF%87%E5%8D%9A%E5%AE%A2.assets/20200813084117.png">
+<meta name="twitter:image" content="https://daphel.github.io/2020/08/13/%E6%88%91%E7%9A%84%E7%AC%AC%E4%B8%80%E7%AF%87%E5%8D%9A%E5%AE%A2/%E6%88%91%E7%9A%84%E7%AC%AC%E4%B8%80%E7%AF%87%E5%8D%9A%E5%AE%A2.assets/20200813084117.png">
   
     <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
   
@@ -70,7 +70,7 @@
         <a id="nav-search-btn" class="nav-icon" title="Search"></a>
       </nav>
       <div id="search-form-wrap">
-        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="https://daphel.github.io"></form>
       </div>
     </div>
   </div>
@@ -234,7 +234,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2020/08/13/%E6%88%91%E7%9A%84%E7%AC%AC%E4%B8%80%E7%AF%87%E5%8D%9A%E5%AE%A2/" data-id="ckds2xxl6000100c80t5e5bbv" class="article-share-link">Share</a>
+      <a data-url="https://daphel.github.io/2020/08/13/%E6%88%91%E7%9A%84%E7%AC%AC%E4%B8%80%E7%AF%87%E5%8D%9A%E5%AE%A2/" data-id="ckds4f9z70001xgc8a6veduff" class="article-share-link">Share</a>
       
       
     </footer>
